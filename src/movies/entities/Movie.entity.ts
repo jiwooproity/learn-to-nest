@@ -4,9 +4,3 @@ export class Movie {
   year: number;
   genres: string[];
 }
-
-export class CreateMovie {
-  title: string;
-  year: number;
-  genres: string[];
-}
