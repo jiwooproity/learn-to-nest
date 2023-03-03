@@ -12,7 +12,7 @@ export class MoviesService {
   }
 
   getMovie(id: number): Movie {
-    const movie = this.movies.find((movie) => movie.id === +id);
+    const movie = this.movies.find((movie) => movie.id === id);
 
     if (!movie) {
       throw new NotFoundException('영화를 찾지 못하였습니다.');
