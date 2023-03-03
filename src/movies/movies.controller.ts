@@ -20,10 +20,9 @@ export class MoviesController {
 
   @Post()
   createMovie(
-    @Body('title') title: string,
-    @Body('description') description: string,
+    @Body() movieJson: { title: string; description: string },
   ): string {
-    return `영화 제목 : ${title}, 영화 설명 : ${description}`;
+    return `영화 제목 : ${movieJson.title}, 영화 설명 : ${movieJson.description}`;
   }
 
   @Delete('/:id')
@@ -34,7 +33,18 @@ export class MoviesController {
   }
 
   @Patch('/:id')
-  patchMovie(@Param('id') movieId: string): string {
-    return `Pathcing a Movie ${movieId}`;
+  patchMovie(
+    @Param('id') movieId: string,
+    @Body() updateJson: { title?: string; description?: string },
+  ): { message: string; body: { title?: string; description?: string } } {
+    return {
+      message: `Pathcing a Movie ${movieId}`,
+      body: updateJson,
+    };
+  }
+
+  @Get('/search/:id')
+  searchMovie(@Param('id') movieId: string): string {
+    return `You did Searching a Movie, Movie id is ${movieId}`;
   }
 }
