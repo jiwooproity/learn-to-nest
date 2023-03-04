@@ -10,15 +10,15 @@ import { TestModule } from './test/test.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync({
-      imports: [MysqlConfigModule],
-      useClass: MySqlConfigService,
-      inject: [MySqlConfigService],
-    }),
+    // ConfigModule.forRoot({ isGlobal: true }),
+    // TypeOrmModule.forRootAsync({
+    //   imports: [MysqlConfigModule],
+    //   useClass: MySqlConfigService,
+    //   inject: [MySqlConfigService],
+    // }),
     MoviesModule,
-    UserModule,
-    TestModule,
+    // UserModule,
+    // TestModule,
   ],
   controllers: [AppController],
   providers: [],
